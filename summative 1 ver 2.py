@@ -12,8 +12,12 @@ def question():
         print ("Question",questnum+1) #Question number
         listofquestions = open("version 2 questions","r")
         lines = listofquestions.readlines()
-        print (lines[questnum*5]+lines[questnum*5+1]+lines[questnum*5+2]+lines[questnum*5+3]+lines[questnum*5+4])
-        question = input("") #References the Question List and item in the list
+        print (lines[questnum*5]+
+               lines[questnum*5+1]+
+               lines[questnum*5+2]+
+               lines[questnum*5+3]+
+               lines[questnum*5+4]) #Prints question and answer options
+        question = input("") #Empty input because question included above
         if question.lower() == scorevaluelist[questnum]: #Correct answer
             print ("You got the question right!")
             score += 1
