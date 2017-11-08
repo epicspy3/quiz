@@ -1,35 +1,35 @@
 #Variables:
-score = wrong = 0
-questionnumber = 0
+score = wrong = 0 #Default is 0
+questnum = 0 #questionnumber
 #Lists:
 answerlist = [] #user answers
 scorevaluelist = ["d","b","c","d","b","c","b","d","a","c","b","a","b","b","b"] #actual answers
 possibleanswerlist = ["a","b","c","d"] #possible answers
 
 def question():
-    global score, wrong, questionnumber, possibleanswerlist
-    while questionnumber < 15: #While loop for 15 questions (number can be changed if necessary)
-        print ("Question",questionnumber+1) #Question number
+    global score, wrong, questnum, possibleanswerlist
+    while questnum < 15: #While loop for 15 questions (number can be changed if necessary)
+        print ("Question",questnum+1) #Question number
         listofquestions = open("version 2 questions","r")
         lines = listofquestions.readlines()
-        print (lines[questionnumber*5]+lines[questionnumber*5+1]+lines[questionnumber*5+2]+lines[questionnumber*5+3]+lines[questionnumber*5+4])
+        print (lines[questnum*5]+lines[questnum*5+1]+lines[questnum*5+2]+lines[questnum*5+3]+lines[questnum*5+4])
         question = input("") #References the Question List and item in the list
-        if question.lower() == scorevaluelist[questionnumber]: #Correct answer
+        if question.lower() == scorevaluelist[questnum]: #Correct answer
             print ("You got the question right!")
             score += 1
-            questionnumber += 1
+            questnum += 1
             answerlist.append(True) #Adds user answer to Answerlist
         elif question.lower() in possibleanswerlist: #if user answered correctly this elif would not run
             print ("You got the question wrong!")
             wrong += 1
-            questionnumber += 1
+            questnum += 1
             answerlist.append(False) #Adds answer to Answerlist
         else: #invalid answer
             print ("Please enter true or false.")
         listofquestions.close()
 
 def finalscore():
-    global score, wrong, questionnumber
+    global score, wrong, questnum
     print ("""
 \
 \
@@ -37,13 +37,13 @@ You have finished the quiz.
 You got""",score,"questions correct and",wrong,"""questions wrong.
 Here is what you got for each question:
 """)
-    questionnumber = 0
+    questnum = 0
     for i in answerlist: #i is placeholder
-        if answerlist[questionnumber] == True: #Prints out which questions user got correct and incorrect
-            print ("You got question",questionnumber+1,"correct.")
+        if answerlist[questnum] == True: #Prints out which questions user got correct and incorrect
+            print ("You got question",questnum+1,"correct.")
         else:
-            print ("You got question",questionnumber+1,"incorrect.")
-        questionnumber += 1
+            print ("You got question",questnum+1,"incorrect.")
+        questnum += 1
     print ("Thanks for playing the quiz!")
 
 #start of game
