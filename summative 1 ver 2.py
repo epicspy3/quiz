@@ -50,13 +50,10 @@ Here is what you got for each question:
         questnum += 1
     print ("Thanks for playing the quiz!")
 
-#start of game
 print ("""
 Welcome to the quiz.
 There are four choices for each question. Please input one.
 That's all.
-""")
+""") #start of game
 
-#run functions
-question()
-finalscore()
+question(),finalscore()#run functions
