@@ -1,8 +1,6 @@
-
 #Variables:
 score = wrong = 0
 questionnumber = 0
-
 #Lists:
 answerlist = [] #user answers
 scorevaluelist = ["d","b","c","d","b","c","b","d","a","c","b","a","b","b","b"] #actual answers
